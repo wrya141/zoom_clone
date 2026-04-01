@@ -9,9 +9,9 @@ const Sidebar = () => {
   const path=usePathname()
   return (
     <section className='sticky left-0 top-0 flex h-screen w-fit bg-[#1C1F2E] flex-col justify-between p-6 pt-28 text-white max-sm:hidden lg:w-264px '>
-      <div className='flex flex-1 flex-col gap-6 '>
+      <div className='flex flex-1 flex-col gap-6 '>{/*bg-[#1C1F2E] is bg-dark-1 */ }
 {sidebarLinks.map((link)=>{
-const isActive=path===link.route || path.startsWith(link.route);
+const isActive=path===link.route || path.startsWith(`${link.route}/`);
 return <Link
 href={link.route}
 key={link.label}
