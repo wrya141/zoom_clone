@@ -28,7 +28,7 @@ if(!apiKey) throw new Error('stream api key missing')
             name:user.username||user.id,
             image:user?.imageUrl
         },
-        tokenProvider:tokenProvider,
+        tokenProvider,
     })
     clientRef.current = client;
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -39,7 +39,7 @@ if(!apiKey) throw new Error('stream api key missing')
             clientRef.current = null;
             setVideoClient(undefined);
         };
-},[user,isLoaded])
+},[user?.id,isLoaded])
 if(!videoClient) return <Loader/>
 return(
 <StreamVideo client={videoClient}>
